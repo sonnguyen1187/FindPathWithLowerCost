@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:id="@+id/activity_main"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+       android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ln_group_example"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_example1"
+            android:layout_width="wrap_content"
+            android:text="Example 1"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_example2"
+            android:layout_width="wrap_content"
+            android:text="Example 2"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_example3"
+            android:layout_width="wrap_content"
+            android:text="Example 3"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/ln_group_example"
+            android:layout_marginTop="10dp"
+            android:id="@+id/ln_group_input"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edit_row"
+            android:hint="Input Row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned" />
+
+            <EditText
+            android:id="@+id/edit_column"
+            android:layout_width="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:hint="Input Column"
+            android:layout_height="wrap_content"
+                android:inputType="numberSigned" />
+
+            <Button
+                android:id="@+id/btn_input"
+                android:layout_width="wrap_content"
+                android:text="INPUT"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/ln_group_input"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ln_group_result"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_result"
+            android:layout_width="wrap_content"
+            android:text="RESULT"
+            android:layout_marginLeft="20dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_havePath"
+            android:text="Yes"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/tv_cost"
+            android:text="cost :"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+
+        <TextView
+            android:id="@+id/tv_path"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Path"
+            android:layout_height="wrap_content"
+            />
+
+
+    </LinearLayout>
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_below="@+id/ln_group_result"
+            android:layout_marginTop="10dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal" >
+                        <TableLayout
+                            android:id="@+id/tableMatrix"
+                            android:layout_width="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:layout_height="match_parent" >
+                        </TableLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>

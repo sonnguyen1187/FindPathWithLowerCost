@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FindPathWithLowerCost</string>
+
+    <string name="cost" formatted="false">Cost : %s</string>
+    <string name="have_path" formatted="false">Have Path : %s </string>
+    <string name="path" formatted="false">Path : %s</string>
+</resources>
