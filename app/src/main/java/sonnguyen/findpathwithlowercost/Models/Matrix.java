@@ -15,6 +15,11 @@ public class Matrix {
     int[][] values;
 
     public Matrix(int[][] values){
+        if (values.length < 1 || values.length > 10) {
+            throw new IllegalArgumentException("No of rows should be between 1 and 10");
+        } else if (values[0].length < 5 || values[0].length > 100) {
+            throw new IllegalArgumentException("No of columns should be between 5 and 100");
+        }
         this.values = values;
     }
     public int getValueAtRowAndColumn(int row, int column) {
@@ -22,6 +27,7 @@ public class Matrix {
     }
 
     public int getNoOfRows() {
+
         return values.length;
     }
 

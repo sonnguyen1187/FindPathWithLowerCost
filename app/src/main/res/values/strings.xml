@@ -4,14 +4,15 @@
     <string name="cost" formatted="false">Cost : %s</string>
     <string name="have_path" formatted="false">Have Path : %s </string>
     <string name="path" formatted="false">Path : %s</string>
-    <string name="result">RESULT</string>
+    <string name="result">Click here to view result</string>
     <string name="example1">Example 1</string>
     <string name="example2">Example 2</string>
     <string name="example3">Example 3</string>
     <string name="hint_input_row">input Row</string>
     <string name="hint_input_col">input Column</string>
-    <string name="matrix_input">Data Matrix Input </string>
-
+    <string name="matrix_input">Data Matrix Input</string>
+    <string name="output_result">Output Result</string>
+    <string name="click_to_print">Print matrix</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="error_message_invalid_matrix">Please check you input minimum of 1 row and 5 columns up to 10 rows and 100 columns.</string>

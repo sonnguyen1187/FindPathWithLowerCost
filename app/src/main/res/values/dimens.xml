@@ -4,4 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="margin_left_item">20dp</dimen>
     <dimen name="margin_top_item">10dp</dimen>
+
+    <dimen name="height_result_view">170dp</dimen>
 </resources>

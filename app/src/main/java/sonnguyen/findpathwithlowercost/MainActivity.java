@@ -79,13 +79,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleInputClick(){
-        row = Utils.getIntegerNumberFromEditText(editRow);
-        column = Utils.getIntegerNumberFromEditText(editColumn);
-        if((row >=1 && column>=5) && (row<=10 && column<=100)){
+        if(invalidateInput()){
             fillTable(row,column,null,tableMatrix);
         }else{
             Toast.makeText(this,getString(R.string.error_message_invalid_matrix),Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public boolean invalidateInput(){
+        row = Utils.getIntegerNumberFromEditText(editRow);
+        column = Utils.getIntegerNumberFromEditText(editColumn);
+      return  (row >=1 && column>=5) && (row<=10 && column<=100);
     }
 
     public void findPath(){
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         if (bestPath.isSuccessful()) {
             tvHavePath.setText(R.string.yes);
         } else {
-            tvHavePath.setText(R.string.yes);
+            tvHavePath.setText(R.string.no);
         }
         tvCost.setText(Integer.toString(bestPath.getTotalCost()));
         tvPath.setText(Utils.formatPath(bestPath));
