@@ -82,7 +82,7 @@ public class MainActivityTest {
         mainActivity.onClick(mainActivity.findViewById(R.id.btn_result));
         assertThat(mainActivity.tvCost.getText().toString(),equalTo("11"));
         assertThat(mainActivity.tvHavePath.getText().toString(),equalTo("Yes"));
-        assertThat(mainActivity.tvPath.getText().toString(),equalTo("1\t2\t5\t4\t5"));
+        assertThat(mainActivity.tvPath.getText().toString(),equalTo("1\t2\t1\t5\t4\t5"));
     }
     @Test
     public void checkResultWithSampleData3() {
@@ -92,7 +92,7 @@ public class MainActivityTest {
         assertThat(mainActivity.tvHavePath.getText().toString(), equalTo("No"));
         assertThat(mainActivity.tvPath.getText().toString(), equalTo("1\t1\t1"));
     }
-    
+
 
 
 
