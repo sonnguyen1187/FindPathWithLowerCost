@@ -22,7 +22,7 @@ import sonnguyen.findpathwithlowercost.Models.Path;
 import sonnguyen.findpathwithlowercost.R;
 
 /**
- * 
+ *
  * This MainActivity class contains methods for processing the UI, display the grid input data and show the output values
  *
  */
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             for (int j = 1; j <= c; j++) {
                 EditText edit = new EditText(MainActivity.this);
                 edit.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
-                edit.setLayoutParams(new TableRow.LayoutParams(Utils.dpToPx(MainActivity.this,30), Utils.dpToPx(MainActivity.this,50)));
+                edit.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
                 // matrix == null means to create the matrix with row and column without data, user inputs the values by themselves
                 if(matrix!=null){
                     edit.setText(Integer.toString(matrix.getValueAtRowAndColumn(i,j)));
@@ -99,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void handleInputClick(){
         if(invalidateInput()){
+            row = Utils.getIntegerNumberFromEditText(editRow);
+            column = Utils.getIntegerNumberFromEditText(editColumn);
             fillTable(row,column,null,tableMatrix);
         }else{
             new AlertDialog.Builder(this)
@@ -114,9 +116,9 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
     public boolean invalidateInput(){
-        row = Utils.getIntegerNumberFromEditText(editRow);
-        column = Utils.getIntegerNumberFromEditText(editColumn);
-      return  (row >=1 && column>=5) && (row<=10 && column<=100);
+        int numberRow = Utils.getIntegerNumberFromEditText(editRow);
+        int numberColumn = Utils.getIntegerNumberFromEditText(editColumn);
+      return  (numberRow >=1 && numberColumn>= 5) && (numberRow <= 10 && numberColumn <= 100);
     }
 
     /**
