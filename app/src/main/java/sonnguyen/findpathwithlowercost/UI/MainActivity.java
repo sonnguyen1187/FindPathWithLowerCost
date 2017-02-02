@@ -126,15 +126,23 @@ public class MainActivity extends AppCompatActivity {
      */
     public void findPath(){
         getValueInMatrix();
-        MatrixVisitor visitor = new MatrixVisitor(matrix);
-        Path bestPath = visitor.getLowestCostPathForGrid();
-        if (bestPath.isSuccessful()) {
-            tvHavePath.setText(R.string.yes);
-        } else {
-            tvHavePath.setText(R.string.no);
+        if(matrix!=null) {
+            MatrixVisitor visitor = new MatrixVisitor(matrix);
+            Path bestPath = visitor.getLowestCostPathForGrid();
+            if (bestPath.isSuccessful()) {
+                tvHavePath.setText(R.string.yes);
+            } else {
+                tvHavePath.setText(R.string.no);
+            }
+            tvCost.setText(Integer.toString(bestPath.getTotalCost()));
+            tvPath.setText(Utils.formatPath(bestPath));
+        }else {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.invalid_content)
+                    .setMessage(R.string.invalid_content_data)
+                    .setPositiveButton(R.string.ok, null)
+                    .show();
         }
-        tvCost.setText(Integer.toString(bestPath.getTotalCost()));
-        tvPath.setText(Utils.formatPath(bestPath));
     }
 
 
@@ -142,18 +150,35 @@ public class MainActivity extends AppCompatActivity {
      *  This method gets all input values in table and fill in the matrix
      */
     private void getValueInMatrix(){
-        int input [][]= new int[row][column];
-        for (int i = 0; i < row; i++) {
-            TableRow RowView  = (TableRow) tableMatrix.getChildAt(i);
-            if(RowView!=null) {
-            for (int j = 0; j < column; j++) {
-                    EditText editText = (EditText) RowView.getChildAt(j);
-                    int value = Utils.getIntegerNumberFromEditText(editText);
-                    input[i][j] = value;
+        int inputs [][]= new int[row][column];
+        if (contentsAreValid(inputs)) {
+            for (int i = 0; i < row; i++) {
+                TableRow RowView = (TableRow) tableMatrix.getChildAt(i);
+                if (RowView != null) {
+                    for (int j = 0; j < column; j++) {
+                        EditText editText = (EditText) RowView.getChildAt(j);
+                        int value = Utils.getIntegerNumberFromEditText(editText);
+                        inputs[i][j] = value;
+                    }
                 }
             }
+
+            matrix = new Matrix(inputs);
         }
-        matrix = new Matrix(input);
+
+    }
+
+    /**
+     * Method to check that no of rows and columns are between the specified limits.
+     * @param contents
+     * @return
+     */
+    private boolean contentsAreValid(int[][] contents) {
+        if (contents.length < 1 || contents.length > 10 || contents[0].length < 5 || contents[0].length > 100) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
