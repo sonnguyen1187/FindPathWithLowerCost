@@ -7,13 +7,14 @@ import java.util.Set;
 
 /**
  * Created by sonnguyen on 2/1/17.
- *
+ * This class contains Matrix model content data for related operation
  *
  */
 
 public class Matrix {
     int[][] values;
 
+    // Constructor
     public Matrix(int[][] values){
         if (values.length < 1 || values.length > 10) {
             throw new IllegalArgumentException("No of rows should be between 1 and 10");
@@ -22,19 +23,40 @@ public class Matrix {
         }
         this.values = values;
     }
+
+    /**
+     * This function returns the value in matrix from a specific row and column
+     * @param row
+     * @param column
+     * @return
+     */
     public int getValueAtRowAndColumn(int row, int column) {
         return values[row - 1][column - 1];
     }
 
-    public int getNoOfRows() {
 
+    /**
+     * This function returns number of Rows
+     * @return
+     */
+    public int getNoOfRows() {
         return values.length;
     }
 
+
+    /**
+     * This function returns number of columns
+     * @return
+     */
     public int getNoOfColumns() {
         return values[0].length;
     }
 
+    /**
+     * This function returns adjacent rows for the specified row
+     * @param rowNumber
+     * @return
+     */
     public List<Integer> getRowsAdjacentTo(int rowNumber) {
         Set<Integer> adjacentRows = new HashSet<Integer>();
 
@@ -47,6 +69,12 @@ public class Matrix {
         return new ArrayList<Integer>(adjacentRows);
     }
 
+
+    /**
+     * This function delimits a string
+     * @param delimiter
+     * @return
+     */
     public String asDelimitedString(String delimiter) {
         StringBuilder builder = new StringBuilder();
 
@@ -65,14 +93,30 @@ public class Matrix {
         return builder.toString();
     }
 
+    /**
+     * This function validates a row
+     * @param rowNumber
+     * @return
+     */
     private boolean isValidRowNumber(int rowNumber) {
         return (rowNumber > 0) && (rowNumber <= values.length);
     }
+
+    /**
+     * This function gets a potential row above
+     * @param rowNumber
+     * @return
+     */
     private int getRowAbove(int rowNumber) {
         int potentialRowNumber = rowNumber - 1;
         return (potentialRowNumber < 1) ? values.length : potentialRowNumber;
     }
 
+    /**
+     * This function gets a potential row below
+     * @param rowNumber
+     * @return
+     */
     private int getRowBelow(int rowNumber) {
         int potentialRowNumber = rowNumber + 1;
         return (potentialRowNumber > values.length) ? 1 : potentialRowNumber;

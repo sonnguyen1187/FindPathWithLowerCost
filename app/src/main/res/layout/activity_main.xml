@@ -74,47 +74,23 @@
         android:text="@string/matrix_input"
         android:layout_height="wrap_content" />
 
-
-
-
     <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ln_group_input"
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+         android:layout_below="@+id/tv_info"
         android:layout_above="@+id/ln_group_result"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:scrollbars="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:scrollbars="horizontal"
+            android:layout_width="match_parent" android:layout_height="fill_parent">
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/tableMatrix" android:layout_width="match_parent"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical" >
+                android:layout_height="fill_parent" android:stretchColumns="1"
+                />
+        </HorizontalScrollView>
 
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScrollView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:layout_gravity="center_horizontal"
-                        android:orientation="vertical" >
-
-                        <TableLayout
-                            android:id="@+id/tableMatrix"
-                            android:layout_width="wrap_content"
-                            android:gravity="center_horizontal"
-                            android:layout_height="match_parent" >
-                        </TableLayout>
-                    </LinearLayout>
-                </HorizontalScrollView>
-            </LinearLayout>
-        </ScrollView>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/ln_group_result"
